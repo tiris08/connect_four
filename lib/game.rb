@@ -30,7 +30,7 @@ class Game
 
   def get_move
     move = gets.chomp
-    until move.match?(/^[0-9]$/) do
+    until move.match?(/^[0-6]$/) do
       puts "Error, Please enter a correct number between 0 and 6"
       move = gets.chomp
     end
