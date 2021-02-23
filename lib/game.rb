@@ -17,7 +17,12 @@ class Game
       puts ""
       puts solicit_move
       x = get_move.to_i
-      board.set_cell(x, current_player.color)
+      until board.set_cell(x, current_player.color)
+        puts "Error, the column is full, try another one"
+        puts ""
+        puts solicit_move
+        x = get_move.to_i
+      end
       if board.game_over?
         puts game_over_message
         board.output_grid
