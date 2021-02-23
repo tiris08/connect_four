@@ -20,6 +20,7 @@ class Board
   end  
 
   def set_cell(x, value)
+    return false if !get_last_empty_column_cell(x)
     get_last_empty_column_cell(x).value = value
   end
  
@@ -29,9 +30,9 @@ class Board
       i -= 1 
       break if grid[i][x].value.empty?
     end
+    return false if i < 0 
     grid[i][x]
   end
-
 
   private
 
